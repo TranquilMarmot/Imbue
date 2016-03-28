@@ -1,0 +1,10 @@
+.DS_Store
+test/Imbue.materials/
+test/Imbue.inform/Build
+test/Imbue.inform/Index
+test/Imbue.inform/Metadata.iFiction
+test/Imbue.inform/Release.blurb
+test/Imbue.inform/manifest.plist
+test/Imbue.inform/notes.rtf
+test/Imbue.inform/Skein.skein
+test/Imbue.inform/Settings.plist
