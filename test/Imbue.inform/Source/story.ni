@@ -24,4 +24,4 @@ After reading a command when collecting names:
 	
 Instead of looking when collecting names: do nothing. [forces the game to not start until a name has been entered]
 
-Imbue Testbed is a room. "Hello, and welcome to the Imbue Testbed![paragraph break]<span class='red'>This is some red text</span>[paragraph break]<span class='blue'>And this is some blue text</span>[paragraph break]<span class='green'>And, some green text!</span>"
+Imbue Testbed is a room. "Hello, and welcome to the Imbue Testbed![paragraph break]<span class='red'>This is some red text</span>[paragraph break]<span class='blue'>And this is some blue text</span>[paragraph break]<span class='green'>And, some green text!</span><script>$('.WindowFrame.BufferWindow').css('background-color', 'rebeccapurple');</script>"
