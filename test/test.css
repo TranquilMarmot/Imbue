@@ -9,3 +9,11 @@
 .green {
   color: green;
 }
+
+.WindowFrame.BufferWindow > .BufferLine > span > a {
+  color: darkgoldenrod;
+}
+
+.WindowFrame.BufferWindow > .BufferLine > span > a:hover {
+  color: maroon;
+}

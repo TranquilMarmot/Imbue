@@ -2,6 +2,11 @@
 
 Release along with an interpreter.
 
+Include Imbue by Nate Moore.
+
+[Uncomment to turn off HTML tags]
+[Using Imbue is false.]
+
 The player's first name is an indexed text that varies. The player's full name is an indexed text that varies.
 
 When play begins:
@@ -24,4 +29,14 @@ After reading a command when collecting names:
 	
 Instead of looking when collecting names: do nothing. [forces the game to not start until a name has been entered]
 
-Imbue Testbed is a room. "Hello, and welcome to the Imbue Testbed![paragraph break]<span class='red'>This is some red text</span>[paragraph break]<span class='blue'>And this is some blue text</span>[paragraph break]<span class='green'>And, some green text!</span><script>$('.WindowFrame.BufferWindow').css('background-color', 'rebeccapurple');</script>"
+To say the red test text: say (span for "This is some red text" attributes "class='red'");
+To say the blue test text: say (span for "And this is some blue text" attributes "class='blue'");
+To say the green test text: say (span for "And, some green text!" attributes "class='green'");
+
+Imbue Testbed is a room. "Hello, and welcome to the Imbue Testbed![paragraph break][the red test text][paragraph break][the blue test text][paragraph break][the green test text]"
+
+To say test object action: say (action for "a test object" name "test object" actions "examine" attributes "class='object'");
+
+The test object is in the Imbue Testbed. "You see here [test object action].".
+The description of the test object is "Yup, it's a test object alright!".
+	
