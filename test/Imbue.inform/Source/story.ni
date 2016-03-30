@@ -33,10 +33,24 @@ To say the red test text: say (span for "This is some red text" attributes "clas
 To say the blue test text: say (span for "And this is some blue text" attributes "class='blue'");
 To say the green test text: say (span for "And, some green text!" attributes "class='green'");
 
-Imbue Testbed is a room. "Hello, and welcome to the Imbue Testbed![paragraph break][the red test text][paragraph break][the blue test text][paragraph break][the green test text]"
+Imbue Testbed is a room. "[if unvisited]Hello, and welcome to the Imbue Testbed![paragraph break][the red test text][paragraph break][the blue test text][paragraph break][the green test text][end if]"
 
-To say test object action: say (action for "a test object" name "test object" actions "examine" attributes "class='object'");
+[-- Edible Test Object--]
+To say test object action: say (action for "a test object" name "test object" actions "examine,pick up,eat" attributes "class='object'");
 
-The test object is in the Imbue Testbed. "You see here [test object action].".
-The description of the test object is "Yup, it's a test object alright!".
-	
+The test object is in the Imbue Testbed. "You see here [test object action], ripe for interaction.".
+The test object is edible.
+The description of the test object is "Yup, it's a test object alright! It looks pretty tasty...".
+After eating the test object, say "Damn, that's a tasty test!".
+
+[-- Switchable Test Switch --]
+To say test switch action: say (action for "a test switch" name "test switch" actions "examine,switch" attributes "class='object'");
+
+The test switch is in the Imbue Testbed. "[if the test switch is switched off]Attached to the wall in the test room there's [test switch action] in the off position. I wonder what you could do with that?[else]There's [test switch action] on the wall here, in the on position.[end if]".
+The test switch is a device. The test switch is switched off.
+The test switch is fixed in place.
+The description of the test switch is "[if the test switch is switched off]It's pretty big... I wonder what it does?[else]It's on, but nothing is happening...[end if]".
+After switching on the test switch:
+	say "Yup, you flipped the switch to on! But nothing seems different...";
+After switching off the test switch:
+	say "Now the switch is off... but still nothing.";

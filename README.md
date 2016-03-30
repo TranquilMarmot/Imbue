@@ -1,21 +1,19 @@
 # Imbue
 
-Imbue is a combination of a JavaScript plugin and (*eventually*) an Inform 7 plugin to add additional functionality to the already wonderful [Quixe](https://github.com/erkyrath/quixe/) interpreter. Imbue aims to make reading web-based interactive fiction a little more beginner- and user-friendly.
+Imbue is a combination of a JavaScript plugin and an Inform 7 plugin to add additional functionality to the already wonderful [Quixe](https://github.com/erkyrath/quixe/) interpreter. Imbue aims to make reading web-based interactive fiction a little more beginner- and user-friendly while maintaining author sanity.
 
 ### Current Features
 - Allows for HTML in Inform 7 text that is rendered in a browser using Quixe
 - Inform 7 extension for wrapping things in HTML tags with the ability to turn off HTML wrapping for non-web releases
-
-### Planned Features
 - Built-in attributes that make it so that clicking on a noun will examine it, clicking on a room name will go in its direction, etc. (carrying out author-defined actions when clicking words)
-- More mobile-friendly interactive fiction
 
 ### Using the JavaScript plugin
 - Write some HTML in your Inform 7 code (see below for how to use the extension)
 - Release your Inform 7 project with an interpreter (put `Release along with an interpreter.` somewhere in your source text)
-- Grab `imbue.js` from the `js` directory in this repo and copy it to the `[YOUR PROJECT].materials/Release/interpreter` folder
+- Grab `imbue.js` from the `js` directory and `imbue.css` from the `css` directory in this repo and copy them to your `[YOUR PROJECT].materials/Release/interpreter` folder
 - In `[YOUR PROJECT].materials/Release/play.html` **underneath** `<script src="interpreter/jquery....."></script>` add:
   - `<script src="interpreter/imbue.js" type="text/javascript"></script>`
+  - `<link rel="stylesheet" href="interpreter/imbue.css" type="text/css">`
 - Play your game in your favorite web browser by opening `play.html` and see magic happen!
 - **NOTE:** Every time you release your game, Inform will overwrite your `play.html`, so you'll have to add the script every time (currently looking into how to avoid this...)
 
@@ -32,14 +30,12 @@ Imbue is a combination of a JavaScript plugin and (*eventually*) an Inform 7 plu
     - For example, `To say blood red text: say (span for "blood red text" attributes "class='red'");`
     - Then, in regular text, `"You see here some [red test text]."`
       - This would be rendered as `You see here some <span class="red">blood red text</span>.`
-  - **To create an action link**, use `(action for [TEXT INSIDE ACTION LINK] name [NAME OF TO NOUN ACT ON] actions [AVAILABLE ACTIONS TO USE ON OBJECT (separated by spaces)] attributes [ATTRIBUTES TO ADD]);`
+  - **To create an action link**, use `(action for [TEXT INSIDE ACTION LINK] name [NAME OF TO NOUN ACT ON] actions [AVAILABLE ACTIONS TO USE ON OBJECT (**comma separated!**)] attributes [ATTRIBUTES TO ADD]);`
     - For example,
-    - `To say the banana link: say (action for "a banana" name "banana" actions "take eat" attributes "class='object'");`
+    - `To say the banana link: say (action for "a banana" name "banana" actions "examine,take,eat" attributes "class='object'");`
     - `The banana is in the hallway. "You see [banana link] on the ground, ripe for eating."`
-      - This will render as `You see <a href="#" class="object" data-name="banana" data-actions="take eat">a banana</a> on the ground, ripe for eating.`
+      - This will render as `You see <a href="#" class="object" data-name="banana" data-actions="examine,take,eat">a banana</a> on the ground, ripe for eating.`
       - When the user clicks on this link, a small window will appear with the actions list. Clicking on an action will carry it out (i.e. `take banana` or `eat banana`)
-      - **NOTE: Clicking the link currently does nothing, that functionality is upcoming**
-  - More helper methods coming soon!
   - Add `Using Imbue is false.` to your source text to disable all HTML output from the extension and instead simply output the text that would be inside the HTML nodes. This is useful for testing your game from within Inform 7, and for creating releases meant to be played in a regular interpreter (that is, not in a browser and not with the JavaScript plugin)
 
 ### Notes
