@@ -36,6 +36,13 @@ Imbue is a combination of a JavaScript plugin and an Inform 7 plugin to add addi
     - `The banana is in the hallway. "You see [banana link] on the ground, ripe for eating."`
       - This will render as `You see <a href="#" class="object" data-name="banana" data-actions="examine,take,eat">a banana</a> on the ground, ripe for eating.`
       - When the user clicks on this link, a small window will appear with the actions list. Clicking on an action will carry it out (i.e. `take banana` or `eat banana`)
+  - **To create a direction link**, use `(direction for [DIRECTION TO MOVE] text [TEXT OF LINK] attributes [ATTRIBUTES TO ADD]);`
+    - For example, `to say the northern lights link: say (direction for "north" text "the northern lights" attributes "class='direction'");`
+    - Then, in regular text, `"To the north you see [the northern lights link], shining bright in the sky."`
+      - This would be rendered as `To the north you see <a href="#" class="direction" data-direction="north">the northern lights</a>, shining bright in the sky.`
+    - **There are also simple direction helpers buillt-in for all eight directions**
+      - i.e. `say "To the [north link], [south link], [southeast link], and [northwest link] you see nothing but trees."`
+      - These will simply render as the text of the direction with a link going in that direction. (`[north link]` is the same as `say (direction for "north" text "north" attributes "");`)
   - Add `Using Imbue is false.` to your source text to disable all HTML output from the extension and instead simply output the text that would be inside the HTML nodes. This is useful for testing your game from within Inform 7, and for creating releases meant to be played in a regular interpreter (that is, not in a browser and not with the JavaScript plugin)
 
 ### Notes

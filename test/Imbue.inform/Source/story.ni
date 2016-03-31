@@ -33,7 +33,9 @@ To say the red test text: say (span for "This is some red text" attributes "clas
 To say the blue test text: say (span for "And this is some blue text" attributes "class='blue'");
 To say the green test text: say (span for "And, some green text!" attributes "class='green'");
 
-Imbue Testbed is a room. "[if unvisited]Hello, and welcome to the Imbue Testbed![paragraph break][the red test text][paragraph break][the blue test text][paragraph break][the green test text][end if]"
+To say the imbue testcouch link: say (direction for "south" text "Imbue Testcouch" attributes "class='direction'");
+
+Imbue Testbed is a room. "[if unvisited]Hello, and welcome to the Imbue Testbed![paragraph break][the red test text][paragraph break][the blue test text][paragraph break][the green test text][paragraph break][end if]To the [south link], you see the [the imbue testcouch link]."
 
 [-- Edible Test Object--]
 To say test object action: say (action for "a test object" name "test object" actions "examine,pick up,eat" attributes "class='object'");
@@ -54,3 +56,8 @@ After switching on the test switch:
 	say "Yup, you flipped the switch to on! But nothing seems different...";
 After switching off the test switch:
 	say "Now the switch is off... but still nothing.";
+	
+[-- Testcouch --]
+To say the imbue testbed link: say (direction for "north" text "Imbue Testbed" attributes "class='direction'");
+
+The Imbue Testcouch is south of the Imbue Testbed. "There's a couch here![paragraph break]To the [north link] leads back to the [the imbue testbed link]";

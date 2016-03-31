@@ -10,12 +10,21 @@
   color: green;
 }
 
+/* Direction Links */
+.WindowFrame.BufferWindow > .BufferLine > span > a[data-direction] {
+  color: #FF2700;
+}
+
+.WindowFrame.BufferWindow > .BufferLine > span > a[data-direction]:hover {
+  color: maroon;
+}
+
 /* Action Links */
-.WindowFrame.BufferWindow > .BufferLine > span > a {
+.WindowFrame.BufferWindow > .BufferLine > span > a[data-actions] {
   color: darkgoldenrod;
 }
 
-.WindowFrame.BufferWindow > .BufferLine > span > a:hover {
+.WindowFrame.BufferWindow > .BufferLine > span > a[data-actions]:hover {
   color: maroon;
 }
 
