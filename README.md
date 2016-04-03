@@ -11,10 +11,15 @@ Imbue is a combination of a JavaScript plugin and an Inform 7 plugin to add addi
 - Write some HTML in your Inform 7 code (see below for how to use the extension)
 - Release your Inform 7 project with an interpreter (put `Release along with an interpreter.` somewhere in your source text)
 - Grab `imbue.js` from the `js` directory and `imbue.css` from the `css` directory in this repo and copy them to your `[YOUR PROJECT].materials/Release/interpreter` folder
+- If you want, you can also replace your `play.html` with `imbue_play.html` from the `html` directory.
+  - `imbue_play.html` has extra buttons at the bottom for `look`, `inventory`, `wait`, `save`, and `restore` to make everything even more accesable
+    - It's super easy to add to these buttons- they're all defined towards the bottom of `imbue_play.html` (a way to add/remove them programmatically may be in the works)
+    - This is a more stripped-down and basic version of the HTML inclued with the default release
+  - There's also a `imbue-style.css` to replace the default `style.css`. Not *stricly* necessary, but recommended.
 - In `[YOUR PROJECT].materials/Release/play.html` **underneath** `<script src="interpreter/jquery....."></script>` add:
   - `<script src="interpreter/imbue.js" type="text/javascript"></script>`
   - `<link rel="stylesheet" href="interpreter/imbue.css" type="text/css">`
-- Play your game in your favorite web browser by opening `play.html` and see magic happen!
+- Play your game in your favorite web browser by opening `play.html` or `imbue-play.html` and see magic happen!
 - **NOTE:** Every time you release your game, Inform will overwrite your `play.html`, so you'll have to add the script every time (currently looking into how to avoid this...)
 
 ### Using the Inform 7 extension

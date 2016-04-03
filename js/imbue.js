@@ -4,6 +4,8 @@ $(window).on('load', function() {
 
   // event to close action menu when clicking outside of it
   $(document).on('click', imbue.removeActionMenuOnClick);
+
+  $('.action-bar-item').on('click', imbue.onActionClicked);
 });
 
 imbue = {
@@ -63,7 +65,14 @@ imbue = {
     // remove any existing menu
     imbue.removeActionMenu();
 
-    let menu = imbue.createActionMenuNode(this.dataset);
+    let actions = this.dataset.actions != undefined ? this.dataset.actions.split(',') : [];
+
+    if(actions.length == 1) {
+      imbue.carryOut(actions[0]);
+      return;
+    }
+
+    let menu = imbue.createActionMenuNode(actions, this.dataset.name);
     this.parentNode.insertBefore(menu, this);
 
     imbue.actionMenu = menu;
@@ -78,12 +87,11 @@ imbue = {
     *   "actions" should be a comma separated list of possible actions to perform
     *   When a menu link is clicked, "[action] [name]" will be carried out
     */
-  createActionMenuNode: function(dataset) {
+  createActionMenuNode: function(actions, name) {
     let menu = document.createElement('div');
     menu.classList.add('ActionList');
 
     // create menu for selecting an action
-    let actions = dataset.actions.split(',');
     for(let i = 0; i < actions.length; i++) {
       let choice = document.createElement('a');
 
@@ -92,10 +100,11 @@ imbue = {
       choice.setAttribute('href', '#');
 
       choice.dataset.action = actions[i];
-      choice.dataset.name = dataset.name;
+      choice.dataset.name = name;
 
       menu.appendChild(choice);
 
+      // event to actually carry out clicking on the action
       choice.addEventListener('click', function() {
         imbue.removeActionMenu();
         imbue.carryOut(

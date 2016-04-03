@@ -63,3 +63,53 @@
   color: #4C4C04 !important;
   background-color: #DADABB;
 }
+
+#action-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  border-top: 1px solid black;
+}
+
+.action-bar-group {
+  display: flex;
+}
+
+.action-bar-group:first-child {
+  margin-left: 0.5em;
+}
+
+.action-bar-group:last-child {
+  margin-right: 0.5em;
+}
+
+.action-bar-item {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1.3em;
+    padding-bottom: 1.3em;
+    background-color: white;
+    width: 10em;
+}
+
+.action-bar-item:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.action-bar-item:last-child {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+@media (max-width: 585px) {
+  .action-bar-item {
+    width: 50%;
+  }
+}
