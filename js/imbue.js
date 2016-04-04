@@ -68,7 +68,7 @@ imbue = {
     let actions = this.dataset.actions != undefined ? this.dataset.actions.split(',') : [];
 
     if(actions.length == 1) {
-      imbue.carryOut(actions[0]);
+      imbue.carryOut(actions[0] + (this.dataset.name ? ' ' + this.dataset.name : ''));
       return;
     }
 
@@ -83,9 +83,8 @@ imbue = {
 
   /**
     * Creates a DOM node for an action menu
-    * @param {Object} dataset - Should have a "name" property and an "actions" property
-    *   "actions" should be a comma separated list of possible actions to perform
-    *   When a menu link is clicked, "[action] [name]" will be carried out
+    * @param {string[]} actions - List of possible actions to be performed
+    * @param {string} name - Name of object actions can act upon. Optional.
     */
   createActionMenuNode: function(actions, name) {
     let menu = document.createElement('div');
