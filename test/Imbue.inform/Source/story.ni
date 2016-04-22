@@ -56,6 +56,13 @@ After switching on the test switch:
 	say "Yup, you flipped the switch to on! But nothing seems different...";
 After switching off the test switch:
 	say "Now the switch is off... but still nothing.";
+
+The javascript object is in the Imbue Testbed. "A JavaScript object lies on the ground."
+
+To say alert-test: say (js for "alert('Hello from JavaScript!');");
+
+After examining the javascript object:
+	say "[alert-test]"
 	
 [-- Testcouch --]
 To say the imbue testbed link: say (direction for "north" text "Imbue Testbed" attributes "class='direction'");
