@@ -9,8 +9,23 @@ $(window).on('load', function() {
 });
 
 imbue = {
+  /**
+   * The player's inventory.
+   * Every turn, a piece of javascript is printed by the Inform plugin
+   * that will set this to everything the player is currently holding.
+   */
+  inventory: {},
+
+  /*
+   * Sets Imbue's inventory object to whatever is in the given string.
+   * Assumes inventory objects are a parsable JSON string
+   */
+  setInventory: function(printedInventory) {
+    imbue.inventory = JSON.parse(printedInventory);
+  },
+
   /** Inputs the given command and submits it */
-  carryOut(command) {
+  carryOut: function(command) {
     let input = $('.Input.LineInput');
     input.val(command);
     input.trigger({ type: 'keypress', which: 13, keyCode: 13 }); // enter
@@ -120,10 +135,9 @@ imbue = {
     * If the event's target isn't the action menu
     * or an ancestor of it, the action menu will be removed
     */
-  removeActionMenuOnClick(event) {
+  removeActionMenuOnClick: function(event) {
     if(!$(event.target).closest('.ActionMenu').length &&
-       !$(event.target).is('.ActionMenu, a'))
-       {
+       !$(event.target).is('.ActionMenu, a')) {
           imbue.removeActionMenu();
        }
   },
@@ -132,7 +146,7 @@ imbue = {
    * Removes the action menu, if there is one.
    * Returns true if the menu was removed, false if there was no menu
    */
-  removeActionMenu() {
+  removeActionMenu: function() {
     if(imbue.actionMenu) {
       imbue.actionMenu.parentNode.removeChild(imbue.actionMenu);
       imbue.actionMenu = undefined;
