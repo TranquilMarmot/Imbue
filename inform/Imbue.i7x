@@ -29,12 +29,18 @@ To say southeast link: say (direction for "southeast" text "southeast" attribute
 To say southwest link: say (direction for "southwest" text "southwest" attributes "");
 To say northwest link: say (direction for "northwest" text "northwest" attributes "");
 
+A thing has a text called inventory-properties.
+
 To say imbue-inventory:
 	repeat with i running from 1 to the number of things carried by the player:
-		say "'[entry i of list of things carried by the player]'";
+		let item be entry i in the list of things carried by the player;
+		say "{'name': '[item]'";
+		if the inventory-properties of the item is not empty:
+			say ",[inventory-properties of the item]";
+		say "}";
 		if i is not the number of things carried by the player:
 			say ",";
-
+		
 Every turn when Using Imbue is true:
 	say js for "imbue.setInventory(['][bracket][imbue-inventory][close bracket][']);";
 
